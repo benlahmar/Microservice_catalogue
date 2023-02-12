@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,6 +55,18 @@ public class ServiceImpl implements IService{
 	public Categorie addcat(Categorie c) {
 		
 		return crepo.save(c);
+	}
+
+	@Override
+	public List<Categorie> allc() {
+		// TODO Auto-generated method stub
+		return crepo.findAll();
+	}
+
+	@Override
+	public void deletecat(long id) {
+		// TODO Auto-generated method stub
+		crepo.deleteById(id);
 	}
 
 	

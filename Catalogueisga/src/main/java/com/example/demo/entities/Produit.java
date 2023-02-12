@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Produit {
 
@@ -16,6 +18,7 @@ public class Produit {
 	String description;
 	String image;
 	
+	@JsonIgnore
 	@ManyToOne
 	Categorie cat;
 
