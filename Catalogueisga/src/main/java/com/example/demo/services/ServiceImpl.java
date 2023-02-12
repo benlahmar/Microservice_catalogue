@@ -25,7 +25,7 @@ public class ServiceImpl implements IService{
 	@Override
 	public Categorie findcat(long id) {
 		
-		return crepo.getById(id);
+		return crepo.findById(id).get();
 	}
 
 	@Override
@@ -47,6 +47,12 @@ public class ServiceImpl implements IService{
 		
 		p=prepo.save(p);
 		return p;
+	}
+
+	@Override
+	public Categorie addcat(Categorie c) {
+		
+		return crepo.save(c);
 	}
 
 	

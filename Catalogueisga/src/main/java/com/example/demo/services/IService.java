@@ -6,6 +6,7 @@ import com.example.demo.entities.Produit;
 public interface IService {
 
 	public Categorie addcat(String lb,String ds) ;
+	public Categorie addcat(Categorie c) ;
 	public Categorie findcat(long id) ;
 	
 	public Produit addproduit(Produit p, long idcat);
