@@ -3,6 +3,8 @@ package com.example.demo.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Categorie;
@@ -67,6 +69,25 @@ public class ServiceImpl implements IService{
 	public void deletecat(long id) {
 		// TODO Auto-generated method stub
 		crepo.deleteById(id);
+	}
+
+	@Override
+	public Produit findp(long idp) {
+		// TODO Auto-generated method stub
+		return prepo.findById(idp).get();
+	}
+
+	@Override
+	public Page<Produit> allprd(Pageable p) {
+		
+		return prepo.findAll(p);
+		
+	}
+
+	@Override
+	public List<Produit> allprd(long idc) {
+		return crepo.findById(idc).get().getProduits();
+		
 	}
 
 	

@@ -3,6 +3,8 @@ package com.example.demo.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,4 +50,20 @@ public class CatalogueApi {
 		return service.addproduit(p, idc);
 	}
 	
+	@GetMapping("/produits/{idp}")
+	public Produit findp(@PathVariable long idp)
+	{
+		return service.findp(idp);
+	}
+	@GetMapping("/produits/cat/{idc}")
+	public List<Produit> allprd4c(@PathVariable long idc)
+	{
+		return service.allprd(idc);
+	}
+	@GetMapping("/produits")
+	Page<Produit> allp(@RequestParam int page,@RequestParam int size)
+	{
+		PageRequest p = PageRequest.of(page, size);
+		return service.allprd(p);
+	}
 }

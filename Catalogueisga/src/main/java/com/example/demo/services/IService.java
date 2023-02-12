@@ -2,6 +2,9 @@ package com.example.demo.services;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.example.demo.entities.Categorie;
 import com.example.demo.entities.Produit;
 
@@ -17,5 +20,11 @@ public interface IService {
 	public Produit addproduit(Produit p, long idcat);
 	
 	public Produit addproduit(String desg,double price,int qte,String description,String image,long idcat);
+	
+	public Produit findp(long idp);
+	Page<Produit> allprd(Pageable p);
+	List<Produit> allprd(long idc);
+	
+	
 
 }
